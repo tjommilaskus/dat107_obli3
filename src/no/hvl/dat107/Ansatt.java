@@ -2,50 +2,38 @@ package no.hvl.dat107;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "firma_ansatt_oppgave.ansatt")
 public class Ansatt {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ansatt_id;
-    @Column
+    private Integer id_ansatt;
     private String brukernavn;
-    @Column
     private String fornavn;
-    @Column
     private String etternavn;
-    @Column
-    private LocalDate annsettelse_dato;
-    @Column
+    private String ans_dato;
     private String stilling;
-    @Column
-    private float lonn_mnd;
-    @Column
-    private int avdeling_id;
-    @Column
-    private String rolle;
+    private Float lonn_mnd;
+    private Integer avd_id;
 
+    public Ansatt() {}
 
-    public Ansatt() {};
-
-   public Ansatt(String brukernavn, String fornavn, String etternavn, LocalDate annsettelse_dato, String stilling, float lonn_mnd, int avdeling_id, String rolle) {
+   public Ansatt(String brukernavn, String fornavn, String etternavn, String ans_dato, String stilling, Float lonn_mnd, Integer avd_id) {
        this.brukernavn = brukernavn;
        this.fornavn = fornavn;
        this.etternavn = etternavn;
-       this.annsettelse_dato = annsettelse_dato;
+       this.ans_dato = ans_dato;
        this.stilling = stilling;
        this.lonn_mnd = lonn_mnd;
-       this.avdeling_id = avdeling_id;
-       this.rolle = rolle;
+       this.avd_id = avd_id;
 
    }
-   public int getAnsatt_id() {
-       return ansatt_id;
+   public Integer getAnsatt_id() {
+       return id_ansatt;
    }
    public void setAnsatt_id(int ansatt_id) {
-       this.ansatt_id = ansatt_id;
+       this.id_ansatt = id_ansatt;
    }
    public String getBrukernavn() {
        return brukernavn;
@@ -65,11 +53,11 @@ public class Ansatt {
    public void setEtternavn(String etternavn) {
        this.etternavn = etternavn;
    }
-   public LocalDate getAnnsettelse_dato() {
-       return annsettelse_dato;
+   public String getAns_dato() {
+       return ans_dato;
    }
-   public void setAnnsettelse_dato(LocalDate annsettelse_dato) {
-       this.annsettelse_dato = annsettelse_dato;
+   public void setAns_dato(String annsettelse_dato) {
+       this.ans_dato = ans_dato;
    }
    public String getStilling() {
        return stilling;
@@ -77,34 +65,25 @@ public class Ansatt {
    public void setStilling(String stilling) {
        this.stilling = stilling;
    }
-   public float getLonn_mnd() {
+   public Float getLonn_mnd() {
        return lonn_mnd;
    }
    public void setLonn_mnd(float lonn_mnd) {
        this.lonn_mnd = lonn_mnd;
    }
-   public String getRolle() {
-       return rolle;
+
+   public Integer getAvd_id() {
+       return getAvd_id();
    }
-   public void setRolle(String rolle) {
-       this.rolle = rolle;
-   }
-   public int getAvdeling_id() {
-       return avdeling_id;
-   }
-   public void setAvdeling_id(int avdeling_id) {
-       this.avdeling_id = avdeling_id;
+   public void setAvd_id(Integer avd_id) {
+       this.avd_id = avd_id;
    }
 
-   public void skrivUt() {
-       System.out.println("AnsattID: " + ansatt_id);
-       System.out.println("Navn: " + fornavn + " " + etternavn);
-       System.out.println("Brukernavn: " + brukernavn);
-       System.out.println("Stilling" + stilling);
-       System.out.println("Månedslønn: " + lonn_mnd);
-       System.out.println("Annsettelsesdato: " + annsettelse_dato);
-       System.out.println("Rolle: " + rolle);
-       System.out.println("avdeling_id: " + avdeling_id);
-   }
-
+    @Override
+    public String toString() {
+        return String.format("\tAnsatt: id: %d, brukernavn: %s, fornavn: %s, etternavn: %s, ansettelsesdato: %s, stilling: %s, månedslønn: %.2f, avdeling: %d",  id_ansatt, brukernavn,
+                fornavn, etternavn, ans_dato, stilling, lonn_mnd, avd_id);
+    }
 }
+
+
