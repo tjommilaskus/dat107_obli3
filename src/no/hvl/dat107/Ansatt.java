@@ -1,25 +1,28 @@
 package no.hvl.dat107;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 
 @Entity
 @Table(name = "firma_ansatt_oppgave.ansatt")
 public class Ansatt {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_ansatt;
     private String brukernavn;
     private String fornavn;
     private String etternavn;
-    private String ans_dato;
+    private LocalDate ans_dato;
     private String stilling;
     private Float lonn_mnd;
     private Integer avd_id;
 
     public Ansatt() {}
 
-   public Ansatt(String brukernavn, String fornavn, String etternavn, String ans_dato, String stilling, Float lonn_mnd, Integer avd_id) {
+    //public Ansatt(String nyBrukernavn, String nyFornavn, String nyEtternavn, LocalDate nyAnsettelsesdato, String nyStilling, Float nyLonn_Mnd) {}
+
+   public Ansatt(String brukernavn, String fornavn, String etternavn, LocalDate ans_dato, String stilling, Float lonn_mnd, Integer avd_id) {
        this.brukernavn = brukernavn;
        this.fornavn = fornavn;
        this.etternavn = etternavn;
@@ -29,7 +32,8 @@ public class Ansatt {
        this.avd_id = avd_id;
 
    }
-   public Integer getAnsatt_id() {
+
+    public Integer getAnsatt_id() {
        return id_ansatt;
    }
    public void setAnsatt_id(int ansatt_id) {
@@ -53,10 +57,10 @@ public class Ansatt {
    public void setEtternavn(String etternavn) {
        this.etternavn = etternavn;
    }
-   public String getAns_dato() {
+   public LocalDate getAns_dato() {
        return ans_dato;
    }
-   public void setAns_dato(String annsettelse_dato) {
+   public void setAns_dato(LocalDate ans_dato) {
        this.ans_dato = ans_dato;
    }
    public String getStilling() {
@@ -73,7 +77,7 @@ public class Ansatt {
    }
 
    public Integer getAvd_id() {
-       return getAvd_id();
+       return avd_id;
    }
    public void setAvd_id(Integer avd_id) {
        this.avd_id = avd_id;
