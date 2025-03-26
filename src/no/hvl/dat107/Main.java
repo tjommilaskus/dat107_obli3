@@ -3,8 +3,6 @@ package no.hvl.dat107;
 
 import jakarta.persistence.*;
 import no.hvl.dat107.dao.AnsattDAO;
-import org.eclipse.persistence.jpa.config.Id;
-
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -19,14 +17,16 @@ public class Main {
 
     public static void main(String[] args) {
         AnsattDAO ansattDAO = new AnsattDAO();
-        //Søk etter ansatt med id
-        //System.out.print("Ansatt ID: ");
-       // Integer id = scanner.nextInt();
-        //scanner.nextLine();
+      /*  //Søk etter ansatt med id
+        System.out.print("Ansatt ID: ");
+        Integer id = scanner.nextInt();
+        scanner.nextLine();
 
         //Søk etter ansatt med brukernavn
-        //System.out.print("Søk etter ansatt: Skriv brukernavn: ");
-       //String brukernavn = scanner.nextLine();
+        System.out.print("Søk etter ansatt: Skriv brukernavn: ");
+        String brukernavn = scanner.nextLine();*/
+
+        ansattDAO.OppdatereAnsatt(17,"CEO", 90000.00F);
 
 
         //Ligge til ny ansatt
@@ -53,17 +53,17 @@ public class Main {
         System.out.println("Nyeste ansatt: " + ny_ansatt);
 
 
-       // System.out.print("Trykk Y for å vise alle ");
-      //  String y = scanner.nextLine().toLowerCase();
-      //  if (y.equalsIgnoreCase("Y")) {
+     /*  System.out.print("Trykk Y for å vise alle ");
+       String y = scanner.nextLine().toLowerCase();
+        if (y.equalsIgnoreCase("Y")) {
             ansattDAO.ListeAvAnsatte();
-       // }
-      // Ansatt a = ansattDAO.finnAnsattMedId(id);
-      // System.out.print("Ansatt med ID:" + a);
+        }
+       Ansatt a = ansattDAO.finnAnsattMedId(id);
+       System.out.print("Ansatt med ID:" + a);
 
-        //Ansatt b = ansattDAO.finnAnsattMedBrukernavn(brukernavn);
-       // System.out.print("Ansatt med Brukernavn: " + b);
-
+        Ansatt b = ansattDAO.finnAnsattMedBrukernavn(brukernavn);
+        System.out.print("Ansatt med Brukernavn: " + b);
+*/
        scanner.close();
    }
 

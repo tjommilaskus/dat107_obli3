@@ -68,7 +68,7 @@ public class AnsattDAO {
         System.out.println("Ferdig!");
         return null;
     }
-    public void OppdatereAnsatt(int id_ansatt, String nyStilling, float nyLonn) {
+    public void OppdatereAnsatt(int id_ansatt, String nyStilling, Float nyLonn) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
