@@ -29,6 +29,7 @@ public class Main {
         System.out.println("5 = Oppdater verdi på en ansatt");
         System.out.println("6 = Søk etter avdeling med avd_id");
         System.out.println("7 = Liste alle avdelinger");
+        System.out.println("8 = Ligg til en sjef på en avdeling");
 
         int valg = scanner.nextInt();
         scanner.nextLine();
