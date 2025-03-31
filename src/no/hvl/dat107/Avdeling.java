@@ -19,7 +19,7 @@ public class Avdeling {
     @JoinColumn (name = "sjef_id", nullable = false)
     private Ansatt sjef;
 
-    @OneToMany(mappedBy = "avdeling", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "avdeling", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private ArrayList<Ansatt> ansatt = new ArrayList<>();
 
     public Avdeling() {}

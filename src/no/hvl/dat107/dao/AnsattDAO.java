@@ -2,6 +2,7 @@ package no.hvl.dat107.dao;
 
 import jakarta.persistence.*;
 import no.hvl.dat107.Ansatt;
+import no.hvl.dat107.Avdeling;
 
 import java.util.List;
 
@@ -91,6 +92,36 @@ public class AnsattDAO {
             em.persist(ansatt);
             em.getTransaction().commit();
             return ansatt;
+        } finally {
+            em.close();
+        }
+    }
+
+    public void leggTilSjef(Integer id_ansatt, Integer avd_id){
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            Ansatt ansatt = em.find(Ansatt.class, id_ansatt);
+            Avdeling avdeling = em.find(Avdeling.class, avd_id);
+
+            if (ansatt != null && avdeling != null) {
+                avdeling.setSjef(ansatt);
+                System.out.println("Updated sjef for avdeling " + avdeling.getNavn() + " to " + ansatt.getFornavn() + " " + ansatt.getEtternavn());
+            } else {
+                if (ansatt == null) {
+                    System.out.println("Error: Ansatt with ID " + id_ansatt + " not found.");
+                }
+                if (avdeling == null) {
+                    System.out.println("Error: Avdeling with ID " + avd_id + " not found.");
+                }
+            }
+            tx.commit();
+        } catch (Exception e) {
+            System.err.println("Error updating sjef: " + e.getMessage());
+            if (tx.isActive()) {
+                tx.rollback();
+            }
         } finally {
             em.close();
         }

@@ -5,7 +5,7 @@ SET search_path TO firma_ansatt_oppgave;
 CREATE TABLE avdeling (
                           avd_id SERIAL PRIMARY KEY,
                           navn VARCHAR(50) NOT NULL,
-                          sjef_id INT NULL
+                          sjef_id INT NOT NULL
 );
 
 CREATE TABLE ansatt (

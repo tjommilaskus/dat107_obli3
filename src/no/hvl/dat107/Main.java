@@ -147,6 +147,31 @@ public class Main {
                     System.out.println("Ingen avdelinger funnet.");
                 }
                 break;
+            case 8:
+                // Legg til en sjef for en avdeling
+                System.out.print("Skriv inn Ansattnummer for den nye sjefen: ");
+                Integer ansattID = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Skriv inn Avdelingsnummer som skal få ny sjef: ");
+                Integer avd_ID = scanner.nextInt();
+                scanner.nextLine();
+
+                Ansatt ansatt = ansattDAO.finnAnsattMedId(ansattID);
+                Avdeling avdeling_Result = avdelingDAO.finnAvdelingMedId(avd_ID);
+
+                if (ansatt != null && avdeling_Result != null) {
+                    ansattDAO.leggTilSjef(ansattID, avd_ID);
+                } else {
+                    if (ansatt == null) {
+                        System.out.println("Kunne ikke finne ansatt med ID: " + ansattID);
+                    }
+                    if (avdeling_Result == null) {
+                        System.out.println("Kunne ikke finne avdeling med ID: " + avd_ID);
+                    }
+                    System.out.println("Oppdatering av sjef ble ikke utført.");
+                }
+                break;
+
             default:
                 System.out.println("Ugyldig valg. Vennligst prøv igjen.");
                 break;

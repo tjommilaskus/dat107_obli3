@@ -88,6 +88,10 @@ public class AvdelingDAO {
     public Avdeling leggTilAvdeling(Avdeling avdeling) {
         EntityManager em = emf.createEntityManager();
         try {
+            if (avdeling.getSjef() == null) {
+                throw new IllegalArgumentException("Avdeling må ha en sjef");
+            }
+
             em.getTransaction().begin();
             em.persist(avdeling);
             em.getTransaction().commit();
@@ -96,4 +100,5 @@ public class AvdelingDAO {
             em.close();
         }
     }
+
 }
