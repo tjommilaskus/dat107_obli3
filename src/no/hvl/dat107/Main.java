@@ -3,6 +3,8 @@ package no.hvl.dat107;
 
 import jakarta.persistence.*;
 import no.hvl.dat107.dao.AnsattDAO;
+import no.hvl.dat107.dao.AvdelingDAO;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
@@ -29,7 +31,7 @@ public class Main {
         System.out.println("7 = Liste alle avdelinger");
 
         int valg = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
 
         switch (valg){
             case 1:
@@ -145,7 +147,6 @@ public class Main {
                     System.out.println("Ingen avdelinger funnet.");
                 }
                 break;
-
             default:
                 System.out.println("Ugyldig valg. Vennligst prøv igjen.");
                 break;

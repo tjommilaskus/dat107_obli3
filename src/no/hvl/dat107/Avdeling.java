@@ -64,6 +64,6 @@ public class Avdeling {
     @Override
     public String toString() {
         String sjefInfo = sjef != null ? sjef.getFornavn() + " " + sjef.getEtternavn() : "Ingen sjef";
-        return String.format("Avdeling: id=%d, navn=%s, sjef=%s", id, navn, sjefInfo);
+        return String.format("Avdeling: id : %d, navn: %s, sjef: %s", id, navn, sjefInfo);
     }
 }
