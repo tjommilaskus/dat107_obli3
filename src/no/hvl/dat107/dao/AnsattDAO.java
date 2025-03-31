@@ -13,13 +13,13 @@ public class AnsattDAO {
         emf = Persistence.createEntityManagerFactory("minPersistenceUnit");
     }
 
-    public Ansatt finnAnsattMedId(int id_ansatt) {
+    public Ansatt finnAnsattMedId(int ansatt_id) {
 
         EntityManager em = emf.createEntityManager();
 
         Ansatt ansatt = null;
         try {
-            ansatt = em.find(Ansatt.class, id_ansatt);
+            ansatt = em.find(Ansatt.class, ansatt_id);
         } finally {
             em.close();
         }
@@ -47,28 +47,29 @@ public class AnsattDAO {
 
     }
 
-    public Ansatt ListeAvAnsatte(){
+    public List<Ansatt> listeAvAnsatte(){
 
         String jpql = "SELECT a FROM Ansatt a";
-        List<Ansatt> ansatt = null;
+        List<Ansatt> ansatte = null;
 
         System.out.println("Kobler til database...");
         EntityManager em = emf.createEntityManager();
 
         try {
             TypedQuery<Ansatt> query = em.createQuery(jpql, Ansatt.class);
-            ansatt = query.getResultList();
+            ansatte = query.getResultList();
         } finally {
             em.close();
         }
         System.out.println("Resultat:");
-        for (Ansatt p : ansatt) {
+        for (Ansatt p : ansatte) {
             System.out.println(p);
         }
         System.out.println("Ferdig!");
-        return null;
+        return ansatte;
     }
-    public void OppdatereAnsatt(int id_ansatt, String nyStilling, Float nyLonn) {
+
+    public void oppdatereAnsatt(int id_ansatt, String nyStilling, Float nyLonn) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -77,14 +78,13 @@ public class AnsattDAO {
                 ansatt.setStilling(nyStilling);
                 ansatt.setLonn_mnd(nyLonn);
                 em.getTransaction().commit();
-
             }
         } finally {
             em.close();
         }
     }
 
-    public Ansatt LeggTilAnsatt(Ansatt ansatt) {
+    public Ansatt leggTilAnsatt(Ansatt ansatt) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
