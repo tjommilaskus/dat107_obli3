@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d7da63b-e690-4e71-8e77-947185481abc" name="Changes" comment="Ferdig med oppgaven">
-      <change beforePath="$PROJECT_DIR$/src/no/hvl/dat107/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/hvl/dat107/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firma_ansatt_oppgave.sql" beforeDir="false" afterPath="$PROJECT_DIR$/firma_ansatt_oppgave.sql" afterDir="false" />
     </list>
     <list id="3b9ce060-226b-444f-9b3f-b0344438bb4d" name="Changes by heide" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1743244049941</updated>
       <workItem from="1743244051067" duration="6734000" />
-      <workItem from="1743422057018" duration="6686000" />
+      <workItem from="1743422057018" duration="7930000" />
     </task>
     <task id="LOCAL-00001" summary="La til Avdeling og fikset noen bugs">
       <option name="closed" value="true" />
@@ -105,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743433342950</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ferdig med oppgaven">
+      <option name="closed" value="true" />
+      <created>1743433418520</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743433418520</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

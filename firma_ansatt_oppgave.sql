@@ -1,12 +1,15 @@
+-- Drop the existing schema to start fresh
 DROP SCHEMA IF EXISTS firma_ansatt_oppgave CASCADE;
 CREATE SCHEMA firma_ansatt_oppgave;
 SET search_path TO firma_ansatt_oppgave;
 
+
 CREATE TABLE avdeling (
                           avd_id SERIAL PRIMARY KEY,
                           navn VARCHAR(50) NOT NULL,
-                          sjef_id INT NOT NULL
+                          sjef_id INT
 );
+
 
 CREATE TABLE ansatt (
                         id_ansatt SERIAL PRIMARY KEY,
@@ -20,9 +23,11 @@ CREATE TABLE ansatt (
                         FOREIGN KEY (avd_id) REFERENCES avdeling(avd_id)
 );
 
+
 ALTER TABLE avdeling
     ADD CONSTRAINT fk_sjef_id
         FOREIGN KEY (sjef_id) REFERENCES ansatt(id_ansatt);
+
 
 INSERT INTO avdeling (navn)
 VALUES
@@ -31,6 +36,7 @@ VALUES
     ('Markedsføring'),
     ('IT'),
     ('Økonomi');
+
 
 INSERT INTO ansatt (brukernavn, fornavn, etternavn, ans_dato, stilling, lonn_mnd, avd_id)
 VALUES
@@ -45,6 +51,7 @@ VALUES
     ('ing', 'Ingvild', 'Moen', '2023-09-18', 'HR-rådgiver', 43000.00, 5),
     ('knu', 'Knut', 'Gran', '2023-10-30', 'Økonom', 44000.00, 5);
 
+
 UPDATE avdeling
 SET sjef_id = 1
 WHERE avd_id = 1;
@@ -52,3 +59,19 @@ WHERE avd_id = 1;
 UPDATE avdeling
 SET sjef_id = 4
 WHERE avd_id = 2;
+
+UPDATE avdeling
+SET sjef_id = 5
+WHERE avd_id = 3;
+
+UPDATE avdeling
+SET sjef_id = 8
+WHERE avd_id = 4;
+
+UPDATE avdeling
+SET sjef_id = 10
+WHERE avd_id = 5;
+
+
+ALTER TABLE avdeling
+    ALTER COLUMN sjef_id SET NOT NULL;
